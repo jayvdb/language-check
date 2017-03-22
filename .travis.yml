@@ -11,7 +11,8 @@ python:
     - "nightly"
 
 install:
-    - python setup.py install
+    - python setup.py install || true
+    - pip install -e .
 
 script:
     - if [ "$TRAVIS_PYTHON_VERSION" != "2.7" ]; then python test.py; fi
