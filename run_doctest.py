@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Modified version of "python -m doctest" with relaxed options."""
+from __future__ import unicode_literals
 
 import doctest
 import os
 import sys
+
+del sys.path[0]
 
 
 def main():

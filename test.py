@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Test suite for language_check."""
+from __future__ import unicode_literals
 
 import unittest
 import warnings
 from collections import namedtuple
+
+import sys
+del sys.path[0]
 
 import language_check
 
