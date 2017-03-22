@@ -3,7 +3,7 @@ sudo: false
 language: python
 
 python:
-    - "2.7"
+    - "2.7.13"
     - "pypy3"
     - "3.3"
     - "3.4"
@@ -11,7 +11,7 @@ python:
     - "nightly"
 
 install:
-    - if [ "$TRAVIS_PYTHON_VERSION" == "2.7" ]; then pip --quiet install 3to2; fi
+    - if [ "${TRAVIS_PYTHON_VERSION#2}" != "$TRAVIS_PYTHON_VERSION" ]; then pip --quiet install 3to2; fi
     - pip install -U setuptools pip
     - python setup.py --quiet install
 
@@ -22,7 +22,7 @@ script:
     - ./test.py
 
     - ./run_doctest.py -v download_lt.py
-    - if [ "$TRAVIS_PYTHON_VERSION" != "2.7" ]; then ./run_doctest.py -v README.rst; fi
+    - if [ "${TRAVIS_PYTHON_VERSION#2}" == "$TRAVIS_PYTHON_VERSION" ]; then ./run_doctest.py -v README.rst; fi
 
     - bash test.bash
 
