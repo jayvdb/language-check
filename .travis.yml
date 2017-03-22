@@ -13,6 +13,7 @@ python:
 install:
     - if [ "$TRAVIS_PYTHON_VERSION" == "2.7" ]; then pip --quiet install 3to2; fi
     - python setup.py --quiet install
+    - pip install -U pytest
 
 script:
     # Prevent Python 2.7 from using the non-3to2 converted code.
