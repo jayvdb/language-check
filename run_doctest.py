@@ -33,7 +33,8 @@ def main():
             failures, _ = doctest.testmod(m, optionflags=optionflags)
         else:
             failures, _ = doctest.testfile(filename, module_relative=False,
-                                           optionflags=optionflags)
+                                           optionflags=optionflags,
+                                           encoding='utf8')
         if failures:
             return 1
     return 0
