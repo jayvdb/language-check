@@ -16,13 +16,13 @@ install:
 
 script:
     # Prevent Python 2.7 from using the non-3to2 converted code.
-    - export PYTHONPATH=""
+    - rm -rf language-check
 
-    - python /home/travis/build/jayvdb/language-check/test.py
+    - python test.py
 
-    - python /home/travis/build/jayvdb/language-check/run_doctest.py -v /home/travis/build/jayvdb/language-check/README.rst /home/travis/build/jayvdb/language-check/download_lt.py
+    - python run_doctest.py -v README.rst download_lt.py
 
-    - bash /home/travis/build/jayvdb/language-check/test.bash
+    - bash test.bash
 
     # Smoke test.
     - echo 'This is a sentence.' > foo.txt
