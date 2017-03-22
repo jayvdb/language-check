@@ -1,10 +1,11 @@
 check:
-	pycodestyle \
+	python3 -m pycodestyle \
+		--exclude ./language_check/LanguageTool-* \
 		--ignore=E402 \
 		./language-check \
 		./language_check/ \
 		$(wildcard *.py)
-	pylint \
+	python3 -m pylint \
 		--reports=no \
 		--rcfile=/dev/null \
 		--disable=attribute-defined-outside-init \
@@ -21,6 +22,7 @@ check:
 		--disable=similarities \
 		--disable=too-few-public-methods \
 		--disable=too-many-branches \
+		--disable=too-many-instance-attributes \
 		--disable=too-many-locals \
 		--disable=too-many-statements \
 		--disable=wrong-import-order \
@@ -28,4 +30,4 @@ check:
 		./language-check \
 		$(wildcard ./language_check/*.py) \
 		$(wildcard *.py)
-	python setup.py --long-description | rstcheck -
+	python3 setup.py --long-description | rstcheck -

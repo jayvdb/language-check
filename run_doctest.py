@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Modified version of "python -m doctest" with relaxed options."""
+from __future__ import print_function
 
 import doctest
 import os
