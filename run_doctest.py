@@ -6,6 +6,8 @@ import doctest
 import os
 import sys
 
+sys.path.remove('')
+
 
 def main():
     testfiles = [arg for arg in sys.argv[1:] if arg and arg[0] != '-']

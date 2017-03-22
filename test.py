@@ -6,6 +6,9 @@ import unittest
 import warnings
 from collections import namedtuple
 
+import sys
+sys.path.remove('')
+
 import language_check
 
 
