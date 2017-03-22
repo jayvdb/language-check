@@ -11,8 +11,7 @@ python:
     - "nightly"
 
 install:
-    - if [ "$TRAVIS_PYTHON_VERSION" == "2.7" ]; then pip --quiet install 3to2; fi
-    - python setup.py --quiet install
+    - python setup.py install
 
 script:
     - if [ "$TRAVIS_PYTHON_VERSION" != "2.7" ]; then python test.py; fi
