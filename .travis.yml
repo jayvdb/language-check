@@ -18,9 +18,7 @@ script:
     # Prevent Python 2.7 from using the non-3to2 converted code.
     - rm -rf language_check
 
-    - python test.py
-
-    - python run_doctest.py -v README.rst download_lt.py
+    - py.test test.py README.rst
 
     - bash test.bash
 
