@@ -18,7 +18,7 @@ From the interpreter:
 
 >>> import language_check
 >>> tool = language_check.LanguageTool('en-US')
->>> text = u'A sentence with a error in the Hitchhiker’s Guide tot he Galaxy'
+>>> text = 'A sentence with a error in the Hitchhikers Guide tot he Galaxy'
 >>> matches = tool.check(text)
 >>> matches
 [Match({'fromy': 0, 'fromx': 16, 'toy': 0, 'tox': 17, 'ruleId': 'EN_A_VS_AN', 'msg': "Use 'an' instead of 'a' if the following word starts with a vowel sound, e.g. 'an article', 'an hour'", 'replacements': ['an'], 'context': 'A sentence with a error in the Hitchhiker’s Guide tot he ...', 'contextoffset': 16, 'offset': 16, 'errorlength': 1, 'category': 'Miscellaneous', 'locqualityissuetype': 'misspelling'}), Match({'fromy': 0, 'fromx': 50, 'toy': 0, 'tox': 56, 'ruleId': 'TOT_HE', 'subId': '1', 'msg': "Did you mean 'to the'?", 'replacements': ['to the'], 'context': '... with a error in the Hitchhiker’s Guide tot he Galaxy', 'contextoffset': 43, 'offset': 50, 'errorlength': 6, 'category': 'Possible Typo', 'locqualityissuetype': 'misspelling'})]
@@ -47,7 +47,7 @@ Suggestion: to the
 Automatically apply suggestions to the text:
 
 >>> language_check.correct(text, matches)
-'A sentence with an error in the Hitchhiker’s Guide to the Galaxy'
+'A sentence with an error in the Hitchhikers Guide to the Galaxy'
 
 From the command line::
 
