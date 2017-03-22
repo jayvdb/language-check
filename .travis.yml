@@ -15,12 +15,14 @@ install:
     - python setup.py --quiet install
 
 script:
-    - if [ "$TRAVIS_PYTHON_VERSION" != "2.7" ]; then python test.py; fi
-
-    - if [ "$TRAVIS_PYTHON_VERSION" != "2.7" ]; then ./run_doctest.py -v README.rst download_lt.py; fi
-
     # Prevent Python 2.7 from using the non-3to2 converted code.
-    - cd language_check; ../test.bash
+    - export PYTHONPATH=""
+
+    - python /home/travis/build/jayvdb/language-check/test.py
+
+    - python /home/travis/build/jayvdb/language-check/run_doctest.py -v /home/travis/build/jayvdb/language-check/README.rst /home/travis/build/jayvdb/language-check/download_lt.py
+
+    - bash /home/travis/build/jayvdb/language-check/test.bash
 
     # Smoke test.
     - echo 'This is a sentence.' > foo.txt
